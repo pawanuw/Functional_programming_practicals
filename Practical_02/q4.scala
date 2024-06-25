@@ -1,6 +1,6 @@
 object globalVar {
     val costPerAttendee = 3
-    val costPerPerformance = 500
+    val costPerPerformance = 500 //I didn't use this as it didn't told to calculate the net profit earned
 }
 
 object q4 {
@@ -28,7 +28,6 @@ object q4 {
             return 0
         }
     }
-
     def main(Args: Array[String])={
         val bestValue =  bestTicketPriceCalc(15, 120)
         println(s"Best value for ticket = $bestValue")
