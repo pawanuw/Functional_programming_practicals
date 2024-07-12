@@ -1,20 +1,14 @@
-object question_4_02{
-    def isEven(number: Int):String = number match{
-        case x if (x%2 == 0) => "Even Number"
-        case _ => "Odd Number"
+object que_2 extends App {
+    def patternMatching(num:Int):String={
+        num match {
+            case num if num==0 => "Zero"
+            case num if num < 0 => "Negative"
+            case num if num%2 == 0 => "Even number"
+            case num if num%2 == 1 => "Odd number"
+            case _ => "Error"
+        }
     }
-
-    def isPositive(number: Int):String = number match{
-        case 0 => "Equals to Zero"
-        case x if (x > 0) => "Greater than Zero"
-        case _ => "Less tha Zero"
-    }
-
-    def main(args: Array[String]):Unit={
-        print("Enter a Number: ")
-        var number: Int = scala.io.StdIn.readInt()
-        println(s"$number is a,")
-        println(isEven(number))
-        println(isPositive(number))
-    }
+    var num:Int = scala.io.StdIn.readInt()
+    val result:String = patternMatching(num)
+    println(result)
 }
