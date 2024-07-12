@@ -1,40 +1,41 @@
-object InventoryManagementSystem {
-  var itemNames: Array[String] = Array("Apple", "Banana", "Orange")
-  var itemQuantities: Array[Int] = Array(10, 5, 7)
-
-  def displayInventory(): Unit = {
-    for (i <- itemNames.indices) {
-      println(s"${itemNames(i)}: ${itemQuantities(i)}")
+object que_1 extends App {
+    var itemNames = Array ("Rice","Dhal","Onion","Eggs")
+    var itemQuantity = Array (15, 10, 8, 40)
+    
+    def displayInventory()={
+        for (i <- 0 until 4) {
+            if (itemQuantity(i) > 0)
+                println(itemNames(i) + "-----" + itemQuantity(i))
+        }
+        println()
     }
-    print("\n");
-  }
 
-  def restockItem(itemName: String, quantity: Int): Unit = {
-    val index = itemNames.indexOf(itemName)
-    if (index != -1) {
-      itemQuantities(index) += quantity
-    } else {
-      println("Item does not exist.")
+    def restockItem(itemName:String, quantity:Int)={
+        var done:Boolean = false
+        for (i <- 0 until 4) {
+            if (itemName == itemNames(i)) {
+                itemQuantity(i) = itemQuantity(i) + quantity
+                done = true
+            }
+        }
+        if (done == false)
+            println("No such item!")
     }
-  }
-
-  def sellItem(itemName: String, quantity: Int): Unit = {
-    val index = itemNames.indexOf(itemName)
-    if (index != -1) {
-      if (itemQuantities(index) >= quantity) {
-        itemQuantities(index) -= quantity
-      } else {
-        println("Not enough quantity to sell.")
-      }
-    } else {
-      println("Item does not exist.")
+    
+    def sellItem(itemName:String, quantity:Int)={
+        var done:Boolean = false
+        for (i <- 0 until 4) {
+            if (itemName == itemNames(i)) {
+                itemQuantity(i) = itemQuantity(i) - quantity
+                done = true
+            }
+        }
+        if (done == false)
+            println("No such item!")
     }
-  }
-
-  def main(args: Array[String]): Unit = {
     displayInventory()
-    restockItem("Banana", 10)
-    sellItem("Apple", 3)
+    restockItem("Rice", 10)
     displayInventory()
-  }
+    sellItem("Eggs",38)
+    displayInventory()
 }
