@@ -66,7 +66,7 @@ object question_6_01{
 
         println(s"Total value of Inventory 1: ${calculateProducts(inventory1)}")
 
-        println(s"Is inventory 1 is Empty: ${isInventoryEmpty(inventory1)}")
+        println(s"Is inventory 1 Empty: ${isInventoryEmpty(inventory1)}")
 
         var mergeInventory = mergeInventories(inventory1 , inventory2)
         print("\nMerged Inventory")
