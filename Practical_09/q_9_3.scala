@@ -1,15 +1,30 @@
-object q_9_1 extends App {
-    def func_A():={
-        
-    }
-    def function_decider(depo_amount:Double):Int = depo_amount match {
-        case x if x < 0 => 0
-        case x if x < 20000 => 1
-        case x if x < 200000 => 2
-        case x if x < 2000000 => 3
-        case _ => 4
-    }
-    def interest(depo_amount:Double,):Double = {
-        
-    }
+object StringFormatter {
+
+  def toUpper(name: String): String = {
+    name.toUpperCase()
+  }
+
+  def toLower(name: String): String = {
+    name.toLowerCase()
+  }
+
+  def formatNames(name: String)(format: String => String): String = {
+    format(name)
+  }
+
+  def main(args: Array[String]): Unit = {
+
+    println(formatNames("Benny")(toUpper))
+    println(formatNames("Niroshan") { name =>
+      val firstTwo = name.substring(0, 2).toUpperCase
+      val rest = name.substring(2).toLowerCase
+      firstTwo + rest
+    })
+    println(formatNames("Saman")(toLower))
+    println(formatNames("Kumara") { name =>
+      val firstFive = name.substring(0, 5).toLowerCase
+      val lastOne = name.substring(5).toUpperCase
+      firstFive + lastOne
+    })
+  }
 }
