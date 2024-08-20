@@ -1,15 +1,21 @@
-object q_9_1 extends App {
-    def func_A():={
-        
+object practical9 {
+
+  def main(args: Array[String]): Unit = {
+    println("enter the deposit money:")
+
+    val userinput = scala.io.StdIn.readLine()
+    val interestAmount = interest(userinput.toDouble)
+
+    println(s"the actual amount of interest is: $interestAmount")
+  }
+
+  def interest(deposit: Double): Double = {
+    val interestRate: Double => Double = deposit match {
+      case d if d <= 20000 => _ => 0.02
+      case d if d <= 200000 => _ => 0.04
+      case d if d <= 2000000 => _ => 0.035
+      case _ => _ => 0.065
     }
-    def function_decider(depo_amount:Double):Int = depo_amount match {
-        case x if x < 0 => 0
-        case x if x < 20000 => 1
-        case x if x < 200000 => 2
-        case x if x < 2000000 => 3
-        case _ => 4
-    }
-    def interest(depo_amount:Double,):Double = {
-        
-    }
+    deposit * interestRate(deposit)
+  }
 }
